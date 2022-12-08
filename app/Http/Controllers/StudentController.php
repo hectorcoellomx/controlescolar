@@ -20,14 +20,13 @@ class StudentController extends Controller
     public function store(Request $request){
 
         $request->validate([
-            'id' => 'required|unique:students|max:20',
+            'id' => 'required|integer|unique:students',
             'name' => 'required|max:200',
             'lastname' => 'required',
             'email' => 'required|email',
             'gender' => 'required|in:m,f',
             'career_id' => 'required|integer'
         ]);
-
 
         $student = new Student();
         $student->id = $request->id;
