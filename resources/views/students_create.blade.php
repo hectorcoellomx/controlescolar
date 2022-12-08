@@ -57,9 +57,11 @@
                             <div class="col-sm-10">
                                 <select name="career_id" class="form-select" id="input6" required>
                                     <option selected>Selecciona una carrera</option>
-                                    <option value="101">Sistemas Computacionales</option>
-                                    <option value="102">Contaduría</option>
-                                    <option value="103">Administración</option>
+                                    <?php
+                                        foreach ($careers as $career) {
+                                            echo '<option value="' . $career->id . '">' . $career->description . '</option>';
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\Career;
 
 class StudentController extends Controller
 {
@@ -14,7 +15,9 @@ class StudentController extends Controller
     }
 
     public function create(){
-        return view('students_create');
+        $career = new Career();
+        $list = $career->list();
+        return view('students_create', [ 'careers' => $list ]);
     }
 
     public function store(Request $request){
