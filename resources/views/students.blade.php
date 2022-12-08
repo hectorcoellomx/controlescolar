@@ -18,6 +18,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Carrera</th>
+                        <th scope="col">Opción</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +31,19 @@
                                     <td>' . $student->id . '</td>
                                     <td>' . $student->name . ' ' . $student->lastname . '</td>
                                     <td>' . $student->email . '</td>
+                                    <td>' . $student->description . '</td>
+                                    <td>';
+                                    ?>        
+
+                                    <form method="POST" action="{{ url('students') }}">
+                                        @csrf
+                                        @method('delete')
+                                        <input class="form-control" value="<?php echo $student->id; ?>" name="id" type="hidden">
+                                        <button class="btn btn-dark"type="submit">Eliminar</button>
+                                    </form>
+
+                                    <?php
+                            echo   '</td>
                                 </tr>';
                         $count++;
                     }

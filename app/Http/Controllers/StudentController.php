@@ -39,15 +39,27 @@ class StudentController extends Controller
         $create = $student->create();
 
         if($create=="done"){
-            return redirect('students?id=1');
+            return redirect('students');
         }else{
             return redirect('students/create')->with('nosave', 'No se ha podido guardar.');
         }
 
     }
 
-    public function destroy(){
-        return true;
+    public function destroy(Request $request){
+
+        $request->validate([
+            'id' => 'required'
+        ]);
+
+        $student = new Student();
+        $res = $student->deletes($request->id);
+        
+        if($res=="done"){
+            return redirect('students');
+        } else {
+            return redirect('students')->with('nodelete', 'No se ha podido eliminar.');
+        }
     }
 
 }

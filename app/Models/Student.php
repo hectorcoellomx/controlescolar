@@ -5,18 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support\Facades\DB;
+
+
 class Student extends Model
 {
     use HasFactory;
 
-    // protected $table = "students";
+    protected $table = "students";
 
     public function list(){
         
-        return $this->where('active', 1)
-        ->orderBy('name')
-        ->take(10)
-        ->get();
+        //return $this->where('active', 1)->get();
+
+        return DB::table('students')
+            ->join('careers', 'students.career_id', '=', 'careers.id')
+            ->select('students.*', 'careers.description')
+            ->get();
         
     }
 
@@ -30,8 +35,8 @@ class Student extends Model
         
     }
 
-    public function delete(){
-        return 100;
+    public function deletes($id){
+        return $this->where('id', $id)->delete();
     }
 
 }
