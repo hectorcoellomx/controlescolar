@@ -19,7 +19,7 @@ Route::get('/logout', [ AuthController::class, 'logout' ] );
 
 Route::get('/careers', [ CareerController::class, 'index' ] );
 Route::get('/students', [ StudentController::class, 'index' ] );
-Route::get('/students_create', [ StudentController::class, 'create' ] );
+Route::get('/students/create', [ StudentController::class, 'create' ] );
 Route::post('/students', [ StudentController::class, 'store' ] );
 Route::delete('/students', [ StudentController::class, 'destroy' ] );
 

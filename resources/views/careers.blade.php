@@ -27,7 +27,6 @@
                         $count++;
                     }
                     ?>
-
                 </tbody>
             </table>
         </div>
