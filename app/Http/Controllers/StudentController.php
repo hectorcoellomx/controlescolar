@@ -17,8 +17,33 @@ class StudentController extends Controller
         return view('students_create');
     }
 
-    public function store(){
-        return true;
+    public function store(Request $request){
+
+        $request->validate([
+            'id' => 'required|unique:students|max:20',
+            'name' => 'required|max:200',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'gender' => 'required|in:m,f',
+            'career_id' => 'required|integer'
+        ]);
+
+
+        $student = new Student();
+        $student->id = $request->id;
+        $student->name = $request->name;
+        $student->lastname = $request->lastname;
+        $student->email = $request->email;
+        $student->gender = $request->gender;
+        $student->career_id = $request->career_id;
+        $create = $student->create();
+
+        if($create=="done"){
+            return redirect('students?id=1');
+        }else{
+            return redirect('students/create')->with('nosave', 'No se ha podido guardar.');
+        }
+
     }
 
     public function destroy(){

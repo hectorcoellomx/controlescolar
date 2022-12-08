@@ -20,4 +20,18 @@ class Student extends Model
         
     }
 
+    public function create(){
+        try {
+            $this->save();
+            return "done";
+        } catch (\Throwable $th) {
+            return "error";
+        }
+        
+    }
+
+    public function delete(){
+        return 100;
+    }
+
 }
