@@ -28,6 +28,7 @@ class AuthController extends Controller
         $access = $admin->login($email, $password);
 
         if($access){
+            session(['user' => array('email' => $email) ]);
             return redirect('home');
         }else{
             return redirect('login')->with('noaccess', 'Usuario o contraseña inválidos.');
@@ -36,7 +37,8 @@ class AuthController extends Controller
     }
 
     // Cierra la sesión
-    public function logout(){
+    public function logout(Request $request){
+        $request->session()->forget('user');
         return redirect('login');
     }
 }
