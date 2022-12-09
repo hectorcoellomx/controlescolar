@@ -54,10 +54,10 @@ class StudentController extends Controller
             'id' => 'required'
         ]);
 
-        $student = new Student();
-        $res = $student->deletes($request->id);
-        
-        if($res=="done"){
+        $student = Student::find($request->id);
+        $delete = $student->delete();
+
+        if($delete){
             return redirect('students');
         } else {
             return redirect('students')->with('nodelete', 'No se ha podido eliminar.');

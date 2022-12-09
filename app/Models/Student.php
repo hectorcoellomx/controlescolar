@@ -35,8 +35,4 @@ class Student extends Model
         
     }
 
-    public function deletes($id){
-        return $this->where('id', $id)->delete();
-    }
-
 }
