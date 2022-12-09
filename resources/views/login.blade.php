@@ -20,7 +20,7 @@
                     </div>
                     @if($errors->any())
                         <div class="alert alert-danger">
-                            Debe ingresar email y contraseña.
+                            Debe ingresar un email y contraseña.
                         </div>
                     @endif
                     @if (session('noaccess'))

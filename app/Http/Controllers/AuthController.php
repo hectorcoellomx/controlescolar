@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Admin;
+// use App\Helpers\Ldap;
 
 class AuthController extends Controller
 {   
-    // Formulario de login
+
     public function index(Request $request){
         
         if($request->session()->has('user')){
@@ -18,7 +19,6 @@ class AuthController extends Controller
         return view('login');
     }
 
-    // Logueo
     public function login(Request $request){
         
         $request->validate([
@@ -29,19 +29,28 @@ class AuthController extends Controller
         $email = $request->email;
         $password = $request->password;
 
-        $admin = new Admin();
-        $access = $admin->login($email, $password);
+        //$ldap = new Ldap();
+        //$login = $ldap->login($email, $password);  
 
-        if($access){
-            session(['user' => array('email' => $email) ]);
-            return redirect('home');
-        }else{
-            return redirect('login')->with('noaccess', 'Usuario o contraseña inválidos.');
-        }
+        //if($login['valido']=='1'){
+            
+            $admin = new Admin();
+            $access = $admin->login($email, $password);
+    
+            if($access){
+                session(['user' => array('email' => $email) ]);
+                return redirect('home');
+            }else{
+                return redirect('login')->with('noaccess', 'No tiene acceso a este sistema.');
+            }
+
+        /* }else{
+                return redirect('login')->with('noaccess', 'Usuario o contraseña inválidos.');
+        } */
+        
 
     }
 
-    // Cierra la sesión
     public function logout(Request $request){
         $request->session()->forget('user');
         return redirect('login');
