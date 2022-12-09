@@ -23,4 +23,5 @@ Route::post('/auth', [ AuthController::class, 'login' ]);
 
 Route::middleware(['authToken'])->group(function () {
     Route::get('/careers', [CareerController::class, 'index']);
+    Route::put('/careers/{id}', [CareerController::class, 'update']);
 });
