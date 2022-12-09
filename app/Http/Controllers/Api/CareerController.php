@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Career;
 
+use Illuminate\Support\Facades\Validator;
+
 class CareerController extends Controller
 {
     public function index()
@@ -20,13 +22,18 @@ class CareerController extends Controller
     public function update(Request $request, $id)
     {
 
-        $description = $request->input('description');
-
-        if($description==null){
-            $data = array( 'error_code' => null, 'message' => 'Debe enviar una descripción' );
+        $validator = Validator::make($request->all(), [
+            'description' => 'required'
+        ]);
+ 
+        if ($validator->fails()) {
+            //return redirect('post/create')->withErrors($validator)->withInput();
+            $data = array( 'error_code' => null, 'message' => 'Debe enviar una descripciónnn' );
             return response()->json($data, 400);
             exit;
         }
+
+        $description = $request->input('description');
 
         $career = Career::find($id);
 
