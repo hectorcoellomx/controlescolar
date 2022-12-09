@@ -25,7 +25,10 @@ INSERT INTO `careers` (`id`, `description`) VALUES ('102', 'Contaduría');
 INSERT INTO `careers` (`id`, `description`) VALUES ('103', 'Administración'); 
 
 INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('501', 'Jaime', 'Santos', 'jaime@unach.mx', 'm', '1', '101'); 
-INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('502', 'Brenda', 'Camacho', 'brenda@unach.mx', 'm', '1', '101'); 
-INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('503', 'Sofía', 'Pineda', 'sofia@unach.mx', 'f', '1', '102'); 
-INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('504', 'Jorge', 'Molina', 'jorge@unach.mx', 'm', '1', '103'); 
-INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('505', 'Marcos', 'Grajales', 'marcos@unach.mx', 'm', '1', '103'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('502', 'Brenda', 'Camacho', 'brenda@unach.mx', 'f', '1', '101'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('503', 'Sofía', 'Pineda', 'sofia@unach.mx', 'f', '1', '101'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('504', 'Andrea', 'Morales', 'andrea@unach.mx', 'f', '1', '102'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('505', 'Karla', 'Cruz', 'karla@unach.mx', 'f', '1', '102'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('506', 'Jorge', 'Molina', 'jorge@unach.mx', 'm', '1', '103'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('507', 'Marcos', 'Grajales', 'marcos@unach.mx', 'm', '1', '103'); 
+INSERT INTO `students` (`id`, `name`, `lastname`, `email`, `gender`, `active`, `career_id`) VALUES ('508', 'Mario', 'Luna', 'mario@unach.mx', 'm', '0', '103'); 
