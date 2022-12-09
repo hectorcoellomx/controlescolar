@@ -10,14 +10,11 @@ class CareerController extends Controller
 {
     public function index()
     {
-
-        $status_code = 200;
-
         $career = new Career();
         $list = $career->list();
 
         $data = array('success' => true, 'message' => '', 'data' => $list);
-        return response()->json($data, $status_code);
+        return response()->json($data, 200);
     }
 
     public function update(Request $request, $id)
