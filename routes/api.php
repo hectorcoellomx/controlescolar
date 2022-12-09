@@ -18,4 +18,9 @@ use App\Http\Controllers\Api\StudentController;
 |
 */
 
-Route::get('/careers', [ CareerController::class, 'index' ] );
+Route::post('/auth', [ AuthController::class, 'login' ]);
+
+
+Route::middleware(['authToken'])->group(function () {
+    Route::get('/careers', [CareerController::class, 'index']);
+});
