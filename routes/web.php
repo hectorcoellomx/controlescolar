@@ -22,7 +22,7 @@ Route::middleware(['authUser'])->group(function () {
     Route::get('/students', [ StudentController::class, 'index' ] );
     Route::get('/students/create', [ StudentController::class, 'create' ] );
     Route::post('/students', [ StudentController::class, 'store' ] );
-    Route::delete('/students', [ StudentController::class, 'destroy' ] );
+    Route::delete('/students/{id}', [ StudentController::class, 'destroy' ] );
 
 });
 

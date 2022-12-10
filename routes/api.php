@@ -22,6 +22,9 @@ Route::post('/auth', [ AuthController::class, 'login' ]);
 
 
 Route::middleware(['authToken'])->group(function () {
-    Route::get('/careers', [CareerController::class, 'index']);
-    Route::put('/careers/{id}', [CareerController::class, 'update']);
+    Route::get('/careers', [ CareerController::class, 'index' ]);
+    Route::put('/careers/{id}', [ CareerController::class, 'update' ]);
+    Route::get('/studentes/career/{id}', [ StudentController::class, 'list' ]);
+    Route::post('/studentes', [ StudentController::class, 'store' ]);
+    Route::delete('/studentes/{id}', [ StudentController::class, 'destroy' ]);
 });

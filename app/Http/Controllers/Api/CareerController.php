@@ -28,9 +28,11 @@ class CareerController extends Controller
  
         if ($validator->fails()) {
             //return redirect('post/create')->withErrors($validator)->withInput();
+            
             $data = array( 'error_code' => null, 'message' => 'Debe enviar una descripciónnn' );
             return response()->json($data, 400);
             exit;
+        
         }
 
         $description = $request->input('description');

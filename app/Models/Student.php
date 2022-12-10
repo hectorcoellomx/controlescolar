@@ -15,8 +15,6 @@ class Student extends Model
     protected $table = "students";
 
     public function list(){
-        
-        //return $this->where('active', 1)->get();
 
         return DB::table('students')
             ->join('careers', 'students.career_id', '=', 'careers.id')
@@ -24,6 +22,16 @@ class Student extends Model
             ->get();
         
     }
+
+    public function list_by_career($id){
+        
+        return DB::table('students')
+            ->where('career_id', $id)
+            ->select('students.*')
+            ->get();
+        
+    }
+
 
     public function create(){
         try {
